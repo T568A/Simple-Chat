@@ -1,12 +1,26 @@
 body {
-    background-color: #ECEFF1;
+    background-color: #CFD8DC;
     padding: 0;
     margin: 0;
 }
 
+textarea {
+    outline: none;
+    resize: none;
+}
+
 .wrapper {
-    background-color: #CFD8DC;
+    background-color: #ECEFF1;
     margin: 0 auto;
     max-width: 1200px;
     min-height: 200px;
+    padding: 3px 10px;
+}
+
+.message-user {
+    background-color: #C8E6C9;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0 10px;
+    /*border: 1px solid black;*/
 }
