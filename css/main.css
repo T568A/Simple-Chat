@@ -1,3 +1,12 @@
 body {
-    background-color: red;
+    background-color: #ECEFF1;
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    background-color: #CFD8DC;
+    margin: 0 auto;
+    width: 1200px;
+    height: 200px;
 }
