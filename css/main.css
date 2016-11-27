@@ -7,6 +7,6 @@ body {
 .wrapper {
     background-color: #CFD8DC;
     margin: 0 auto;
-    width: 1200px;
-    height: 200px;
+    max-width: 1200px;
+    min-height: 200px;
 }
