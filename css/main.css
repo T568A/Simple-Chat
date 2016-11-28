@@ -1,7 +1,15 @@
-body {
+html, body {
     background-color: #CFD8DC;
     padding: 0;
     margin: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-image: url("../img/background8.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .wrapper-area {
@@ -10,38 +18,76 @@ body {
 }
 
 textarea {
+    font-size: 16px;
+    border-radius: 6px;
+    padding-left: 10px;
     margin-bottom: 10px;
+    margin-left: 15px;
     float: left;
     width: 600px;
     height: 60px;
     resize: none;
+    border: none;
+    border-top: 6px solid #29B6F6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+}
+
+textarea:focus, input:focus {
+    outline: none;
 }
 
 button {
     display: block;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-color: #29B6F6;
+    color: #fff;
+    font-size: 20px;
     margin-left: 10px;
     float: left;
-    width: 120px;
-    height: 66px;
-}
-
-.message-list {
-    max-height: 600px;
-    overflow-y: auto;
+    width: 140px;
+    height: 70px;
 }
 
 .wrapper {
-    background-color: #ECEFF1;
+    background-color: #FFFDF6;
     margin: 0 auto;
     max-width: 900px;
-    min-height: 200px;
-    padding: 3px 10px;
+    height: 100%;
+    padding: 0px 10px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.message-list {
+    height: calc(100% - 120px);
+    overflow: auto;
 }
 
 .message-user {
-    background-color: #C8E6C9;
-    max-width: 400px;
+    font-size: 17px;
+    border-radius: 7px;
+    background-color: #29B6F6;
+    color: #fff;
+    max-width: 250px;
     padding: 10px;
-    margin: 10px 0 10px;
+    margin: 10px 15px;
     /*border: 1px solid black;*/
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #777;
+    background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
 }
