@@ -4,16 +4,12 @@ var messageList = document.querySelector('.message-list'),
 
 function addMessage() {
     var div = document.createElement('div');
-    div.className = 'message-user';
-    if (messageText.value !== '') {
-        div.innerText = messageText.value;
+    div.className = 'animated flipInX message-user';
+    if (messageText.value.trim() !== '') {
+        div.innerText = messageText.value.trim();
         messageList.appendChild(div);
-        clearTextarea();
+        messageText.value = '';
     }
-}
-
-function clearTextarea() {
-    messageText.value = '';
 }
 
 

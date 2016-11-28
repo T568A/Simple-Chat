@@ -4,15 +4,36 @@ body {
     margin: 0;
 }
 
+.wrapper-area {
+    position: fixed;
+    bottom: 0;
+}
+
 textarea {
-    outline: none;
+    margin-bottom: 10px;
+    float: left;
+    width: 600px;
+    height: 60px;
     resize: none;
+}
+
+button {
+    display: block;
+    margin-left: 10px;
+    float: left;
+    width: 120px;
+    height: 66px;
+}
+
+.message-list {
+    max-height: 600px;
+    overflow-y: auto;
 }
 
 .wrapper {
     background-color: #ECEFF1;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 900px;
     min-height: 200px;
     padding: 3px 10px;
 }
