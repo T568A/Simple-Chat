@@ -1,62 +1,70 @@
 html, body {
-    background-color: #CFD8DC;
-    padding: 0;
-    margin: 0;
     height: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Roboto', sans-serif;
+    background-color: #CFD8DC;
 }
 
 body {
-    background-image: url("../img/background8.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background: url("../img/background8.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 .wrapper-area {
+    width: 50%;
     position: fixed;
     bottom: 0;
 }
 
 textarea {
-    font-size: 16px;
-    border-radius: 6px;
+    display: block;
+    float: left;
+    width: 70%;
+    min-height: 60px;
     padding-left: 10px;
     margin-bottom: 10px;
-    margin-left: 15px;
-    float: left;
-    width: 600px;
-    height: 60px;
-    resize: none;
+    margin-left: 25px;
     border: none;
+    border-radius: 6px;
     border-top: 6px solid #29B6F6;
+    resize: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
 }
 
-textarea:focus, input:focus {
+textarea:focus, button:focus {
     outline: none;
+}
+
+button:hover {
+    outline: none;
+    background-color: #4CAF50;
 }
 
 button {
     display: block;
+    float: left;
+    width: 90px;
+    height: 70px;
+    margin-left: 10px;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    background-color: #29B6F6;
-    color: #fff;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    margin-left: 10px;
-    float: left;
-    width: 140px;
-    height: 70px;
+    color: #fff;
+    background: url("../img/keyboard_return.png") no-repeat center center;
+    background-color: #29B6F6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .wrapper {
-    background-color: #FFFDF6;
-    margin: 0 auto;
-    max-width: 900px;
     height: 100%;
-    padding: 0px 10px;
+    max-width: 50%;
+    margin: 0 auto;
+    background-color: #FFFDF6;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
@@ -66,14 +74,13 @@ button {
 }
 
 .message-user {
-    font-size: 17px;
-    border-radius: 7px;
-    background-color: #29B6F6;
-    color: #fff;
     max-width: 250px;
     padding: 10px;
-    margin: 10px 15px;
-    /*border: 1px solid black;*/
+    margin: 10px 25px;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 7px;
+    background-color: #29B6F6;
 }
 
 ::-webkit-scrollbar {
@@ -90,4 +97,37 @@ button {
     border-width: 1px 1px 1px 2px;
     border-color: #555;
     background-color: #777;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .wrapper {
+        max-width: 75%;
+    }
+    .wrapper-area {
+        width: 75%;
+    }
+
+}
+
+
+@media screen and (max-width: 1024px) {
+    body {
+        background: url("../img/background15.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
+    .wrapper {
+        max-width: 100%;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .wrapper-area {
+        width: 100%;
+    }
+    button {
+        height: 70px;
+        width: 70px;
+        border-radius: 50px;
+        background: url("../img/send_white.png") no-repeat center center;
+        background-color: #29B6F6;
+    }
 }
