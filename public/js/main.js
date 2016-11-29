@@ -14,7 +14,7 @@ function addMessage() {
 }
 
 
-document.querySelector('.button').addEventListener('click', addMessage);
+document.querySelector('.button-send').addEventListener('click', addMessage);
 document.querySelector('.message-text').addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
         if (event.shiftKey) {

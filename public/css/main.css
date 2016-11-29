@@ -11,12 +11,6 @@ body {
     background-size: cover;
 }
 
-.wrapper-area {
-    width: 50%;
-    position: fixed;
-    bottom: 0;
-}
-
 textarea {
     display: block;
     float: left;
@@ -38,27 +32,6 @@ textarea {
 
 textarea:focus, button:focus {
     outline: none;
-}
-
-button:hover {
-    outline: none;
-    background-color: #4CAF50;
-}
-
-button {
-    display: block;
-    float: left;
-    width: 90px;
-    height: 70px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    color: #fff;
-    background: url("../img/keyboard_return.png") no-repeat center center;
-    background-color: #29B6F6;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .wrapper {
@@ -84,6 +57,33 @@ button {
     background-color: #29B6F6;
 }
 
+.wrapper-message-send {
+    width: 50%;
+    position: fixed;
+    bottom: 0;
+}
+
+.button-send {
+    display: block;
+    float: left;
+    width: 90px;
+    height: 70px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background: url("../img/keyboard_return.png") no-repeat center center;
+    background-color: #29B6F6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.button-send:hover {
+    outline: none;
+    background-color: #4CAF50;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -100,17 +100,15 @@ button {
     background-color: #777;
 }
 
-
 @media screen and (max-width: 1280px) {
     .wrapper {
         max-width: 75%;
     }
-    .wrapper-area {
+    .wrapper-message-send {
         width: 75%;
     }
 
 }
-
 
 @media screen and (max-width: 1024px) {
     body {
@@ -121,10 +119,10 @@ button {
         max-width: 100%;
         background-color: rgba(0, 0, 0, 0);
     }
-    .wrapper-area {
+    .wrapper-message-send {
         width: 100%;
     }
-    button {
+    .button-send {
         height: 70px;
         width: 70px;
         border-radius: 50px;
