@@ -1,27 +1,45 @@
 var messageList = document.querySelector('.message-list'),
-    messageText = document.querySelector('.message-text');
+    textArea = document.querySelector('.message-text'),
+    socket = io();
 
 
-function addMessage() {
+function getMessageText () {
+    return textArea.value.trim();
+}
+
+function addMessageToPage(messageText) {
     var div = document.createElement('div');
     div.className = 'animated flipInX message-user';
-    if (messageText.value.trim() !== '') {
-        div.innerText = messageText.value.trim();
-        messageList.appendChild(div);
-        messageText.value = '';
-        messageList.scrollTop = messageList.scrollHeight;
+    div.innerText = messageText;
+    messageList.appendChild(div);
+}
+
+function clearTextArea() {
+    textArea.value = '';
+    messageList.scrollTop = messageList.scrollHeight;
+}
+
+function sendMessageToServer(messageText) {
+    socket.emit('chat message', messageText);
+}
+
+function sendMessage() {
+    var messageText = getMessageText();
+    if (messageText !== '') {
+        addMessageToPage(messageText);
+        clearTextArea();
+        sendMessageToServer(messageText);
     }
 }
 
-
-document.querySelector('.button-send').addEventListener('click', addMessage);
+document.querySelector('.button-send').addEventListener('click', sendMessage);
 document.querySelector('.message-text').addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
         if (event.shiftKey) {
             return true;
         } else {
             event.preventDefault();
-            addMessage();
+            sendMessage();
         }
     }
 });
