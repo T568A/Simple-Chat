@@ -1,0 +1,23 @@
+{
+  "name": "test_chat",
+  "version": "0.0.1",
+  "description": "chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T568A/Test-chat.git"
+  },
+  "author": "Andrey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/T568A/Test-chat/issues"
+  },
+  "homepage": "https://github.com/T568A/Test-chat#readme",
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "socket.io": "^1.7.1"
+  }
+}
