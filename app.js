@@ -16,8 +16,9 @@ app.get('/', function (req, res) {
 io.on('connection', function(socket){
     //TODO: add event new client
     socket.on('chat message', function(msg){
-        if (msg.messageText.trim() !== '') {
+        if (msg.messageText.trim() !== '' && msg.userName.trim() !== '') {
             msg.messageText = escape(msg.messageText.trim());
+            msg.userName = escape(msg.userName.trim());
             io.emit('chat message', msg);
             console.log(msg.userName + ': ' + msg.messageText);
         }

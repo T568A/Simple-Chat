@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #CFD8DC;
 }
 
@@ -23,7 +23,7 @@ textarea {
     border-radius: 6px;
     border-top: 6px solid #29B6F6;
     resize: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     overflow: hidden;
 }
@@ -52,7 +52,8 @@ button:hover, input:hover, textarea:hover {
 
 .message-list {
     height: calc(100% - 120px);
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 
@@ -60,9 +61,8 @@ button:hover, input:hover, textarea:hover {
     width: 51%;
     padding: 10px;
     margin: 10px 25px;
-    font-size: 17px;
+    font-size: 18px;
     border-radius: 7px;
-
 }
 
 .message-user {
@@ -91,7 +91,7 @@ button:hover, input:hover, textarea:hover {
     margin-left: 10px;
     border: none;
     border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     color: #fff;
     background: url("../img/keyboard_return.png") no-repeat center center;
@@ -123,6 +123,7 @@ button:hover, input:hover, textarea:hover {
     display: block;
     width: 60%;
     color: #607D8B;
+    font-family: 'Open Sans', sans-serif;
     font-size: 24px;
     margin: 70px auto 25px;
     padding: 10px;

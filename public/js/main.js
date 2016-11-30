@@ -19,9 +19,19 @@ function getMessageText() {
 }
 
 function addMessageToPage(msg, selector) {
-    var div = document.createElement('div');
+    var div = document.createElement('div'),
+        strong = document.createElement('strong'),
+        br = document.createElement('br'),
+        span =document.createElement('span');
+
+    strong.innerText = msg.userName + ':';
+    span.innerText = msg.messageText;
+
     div.className = 'animated flipInX ' + selector;
-    div.innerText = msg.messageText;
+    div.appendChild(strong);
+    div.appendChild(br);
+    div.appendChild(span);
+
     messageList.appendChild(div);
     messageList.scrollTop = messageList.scrollHeight;
 }
