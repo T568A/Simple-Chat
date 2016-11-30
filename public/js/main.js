@@ -7,30 +7,37 @@ function getMessageText () {
     return textArea.value.trim();
 }
 
-function addMessageToPage(messageText) {
+function addMessageToPage(msg) {
     var div = document.createElement('div');
     div.className = 'animated flipInX message-user';
-    div.innerText = messageText;
+    div.innerText = msg.messageText;
     messageList.appendChild(div);
+    messageList.scrollTop = messageList.scrollHeight;
 }
 
 function clearTextArea() {
     textArea.value = '';
-    messageList.scrollTop = messageList.scrollHeight;
 }
 
-function sendMessageToServer(messageText) {
-    socket.emit('chat message', messageText);
+function sendMessageToServer(msg) {
+    socket.emit('chat message', msg);
 }
 
 function sendMessage() {
-    var messageText = getMessageText();
-    if (messageText !== '') {
-        addMessageToPage(messageText);
+    var msg = {
+        userName: '',
+        messageText: ''
+    };
+    msg.messageText = getMessageText();
+    if (msg.messageText !== '') {
         clearTextArea();
-        sendMessageToServer(messageText);
+        sendMessageToServer(msg);
     }
 }
+
+socket.on('chat message', function(msg){
+    addMessageToPage(msg);
+ });
 
 document.querySelector('.button-send').addEventListener('click', sendMessage);
 document.querySelector('.message-text').addEventListener('keydown', function (event) {

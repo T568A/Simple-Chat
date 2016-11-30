@@ -4,23 +4,26 @@ var express = require('express'),
     io = require('socket.io')(server),
     escape = require('escape-html');
 
-
 app.disable('x-powered-by');
 app.use(express.static('public'));
 
 server.listen(80);
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-  });
+    //TODO: add evetn new client
+    socket.on('chat message', function(msg){
+        if (msg.messageText.trim() !== '') {
+            msg.messageText = escape(msg.messageText.trim());
+            io.emit('chat message', msg);
+            console.log(msg.messageText);
+        }
+    });
 });
 
-
 app.use(function(req, res, next) {
-  res.status(404).send('<h1>404 :C</h1>');
+    res.status(404).send('<h1>404 :C</h1>');
 });
