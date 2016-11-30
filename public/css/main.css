@@ -55,14 +55,26 @@ button:hover, input:hover, textarea:hover {
     overflow: auto;
 }
 
-.message-user {
-    max-width: 250px;
+
+.message-user, .remote-user {
+    width: 51%;
     padding: 10px;
     margin: 10px 25px;
     font-size: 17px;
-    color: #fff;
     border-radius: 7px;
+
+}
+
+.message-user {
+    float: left;
+    color: #fff;
     background-color: #29B6F6;
+}
+
+.remote-user {
+    float: right;
+    color: #555C65;
+    background-color: #C9D6E3;
 }
 
 .wrapper-message-send {
@@ -103,12 +115,16 @@ button:hover, input:hover, textarea:hover {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
+.hide-popup {
+    display: none;
+}
+
 .user-name {
     display: block;
     width: 60%;
     color: #607D8B;
     font-size: 24px;
-    margin: 70px auto 35px;
+    margin: 70px auto 25px;
     padding: 10px;
     background-color: #FFFDF6;
     border: none;
@@ -132,7 +148,6 @@ button:hover, input:hover, textarea:hover {
 }
 
 .background-popup {
-    display: block;
     position: fixed;
     top: 0;
     left: 0;

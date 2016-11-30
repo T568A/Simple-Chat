@@ -1,15 +1,26 @@
 var messageList = document.querySelector('.message-list'),
     textArea = document.querySelector('.message-text'),
-    socket = io();
+    socket = io(),
+    username;
 
 
-function getMessageText () {
+function getUserName() {
+    username = document.querySelector('.user-name').value.trim();
+    hidePopup();
+}
+
+function hidePopup() {
+    document.querySelector('.popup').classList.add('hide-popup');
+    document.querySelector('.background-popup').classList.add('hide-popup');
+}
+
+function getMessageText() {
     return textArea.value.trim();
 }
 
-function addMessageToPage(msg) {
+function addMessageToPage(msg, selector) {
     var div = document.createElement('div');
-    div.className = 'animated flipInX message-user';
+    div.className = 'animated flipInX ' + selector;
     div.innerText = msg.messageText;
     messageList.appendChild(div);
     messageList.scrollTop = messageList.scrollHeight;
@@ -28,16 +39,28 @@ function sendMessage() {
         userName: '',
         messageText: ''
     };
+    msg.userName = username;
     msg.messageText = getMessageText();
-    if (msg.messageText !== '') {
+    if (msg.messageText !== '' && msg.userName !== '') {
         clearTextArea();
         sendMessageToServer(msg);
     }
 }
 
 socket.on('chat message', function(msg){
-    addMessageToPage(msg);
+    if (username === msg.userName) {
+        addMessageToPage(msg, 'message-user');
+    } else {
+        addMessageToPage(msg, 'remote-user');
+    }
  });
+
+document.querySelector('.button-send-username').addEventListener('click', getUserName);
+document.querySelector('.user-name').addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+        getUserName();
+    }
+});
 
 document.querySelector('.button-send').addEventListener('click', sendMessage);
 document.querySelector('.message-text').addEventListener('keydown', function (event) {
