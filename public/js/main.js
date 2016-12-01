@@ -12,8 +12,10 @@ function logon() {
             document.querySelector('.user-name').value = '';
             document.querySelector('.logon-system-message').innerText = 'Username already taken!';
             document.querySelector('.logon-system-message').classList.add('logon-system-message-show');
+            socket.disconnect();
         } else if (msg === 'allow'){
             hidePopup();
+            socket.disconnect();
         }
     });
 }
