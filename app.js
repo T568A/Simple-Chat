@@ -21,12 +21,13 @@ io.on('connection', function(socket){
         if (users.indexOf(msg.userName) === -1) {
             users.push(escape(msg.userName.trim()));
             console.log(users);
-            io.emit('logon', 'allow');
+            socket.emit('logon', 'allow');
         } else {
-            io.emit('logon', 'deny');
+            socket.emit('logon', 'deny');
         }
 
     });
+    // TODO: TypeError: Cannot read property 'trim' of undefined (if userName empty)
     socket.on('chat message', function(msg) {
         if (msg.messageText.trim() !== '' && msg.userName.trim() !== '') {
             msg.messageText = escape(msg.messageText.trim());

@@ -6,19 +6,26 @@ var messageList = document.querySelector('.message-list'),
 
 function logon() {
     username = document.querySelector('.user-name').value.trim();
-    socket.emit('connect user', {userName: username});
+    socket.emit('connect user', {'userName': username});
     socket.on('logon', function(msg) {
         if (msg === 'deny') {
             document.querySelector('.user-name').value = '';
             document.querySelector('.logon-system-message').innerText = 'Username already taken!';
             document.querySelector('.logon-system-message').classList.add('logon-system-message-show');
-            socket.disconnect();
-        } else if (msg === 'allow'){
+        } else if (msg === 'allow') {
             hidePopup();
-            socket.disconnect();
         }
     });
 }
+
+socket.on('chat message', function(msg){
+    if (username === msg.userName) {
+        addMessageToPage(msg, 'message-user');
+    } else {
+        addMessageToPage(msg, 'remote-user');
+    }
+});
+
 
 function hidePopup() {
     document.querySelector('.popup').classList.add('hide-popup');
@@ -67,14 +74,6 @@ function sendMessage() {
         sendMessageToServer(msg);
     }
 }
-
-socket.on('chat message', function(msg){
-    if (username === msg.userName) {
-        addMessageToPage(msg, 'message-user');
-    } else {
-        addMessageToPage(msg, 'remote-user');
-    }
- });
 
 document.querySelector('.button-send-username').addEventListener('click', logon);
 document.querySelector('.user-name').addEventListener('keydown', function (event) {
