@@ -3,7 +3,8 @@ var express = require('express'),
     server = require('http').Server(app),
     io = require('socket.io')(server),
     escape = require('escape-html'),
-    users = [];
+    users = [],
+    messageHistory = [];
 
 app.disable('x-powered-by');
 app.use(express.static('public'));
@@ -22,6 +23,9 @@ io.on('connection', function(socket){
             users.push(escape(msg.userName.trim()));
             console.log(users);
             socket.emit('logon', 'allow');
+            messageHistory.forEach(function(element, index, array) {
+                socket.emit('chat message', element);
+            });
         } else {
             socket.emit('logon', 'deny');
         }
@@ -33,7 +37,12 @@ io.on('connection', function(socket){
             msg.messageText = escape(msg.messageText.trim());
             msg.userName = escape(msg.userName.trim());
             io.emit('chat message', msg);
+            if (messageHistory.length >= 10) {
+                messageHistory.shift();
+            }
+            messageHistory.push(msg);
             console.log(msg.userName + ': ' + msg.messageText);
+            console.log(messageHistory);
         }
     });
 });

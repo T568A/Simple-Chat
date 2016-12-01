@@ -7,16 +7,17 @@ var messageList = document.querySelector('.message-list'),
 function logon() {
     username = document.querySelector('.user-name').value.trim();
     socket.emit('connect user', {'userName': username});
-    socket.on('logon', function(msg) {
-        if (msg === 'deny') {
-            document.querySelector('.user-name').value = '';
-            document.querySelector('.logon-system-message').innerText = 'Username already taken!';
-            document.querySelector('.logon-system-message').classList.add('logon-system-message-show');
-        } else if (msg === 'allow') {
-            hidePopup();
-        }
-    });
 }
+
+socket.on('logon', function(msg) {
+    if (msg === 'deny') {
+        document.querySelector('.user-name').value = '';
+        document.querySelector('.logon-system-message').innerText = 'Username already taken!';
+        document.querySelector('.logon-system-message').classList.add('logon-system-message-show');
+    } else if (msg === 'allow') {
+        hidePopup();
+    }
+});
 
 socket.on('chat message', function(msg){
     if (username === msg.userName) {
@@ -25,6 +26,7 @@ socket.on('chat message', function(msg){
         addMessageToPage(msg, 'remote-user');
     }
 });
+
 
 
 function hidePopup() {
