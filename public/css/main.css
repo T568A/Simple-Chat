@@ -56,7 +56,6 @@ button:hover, input:hover, textarea:hover {
     overflow-x: hidden;
 }
 
-
 .message-user, .remote-user {
     width: 51%;
     padding: 10px;
@@ -99,10 +98,8 @@ button:hover, input:hover, textarea:hover {
 }
 
 .button-send:hover {
-    outline: none;
     background-color: #4CAF50;
 }
-
 
 .popup {
     position: fixed;
@@ -122,23 +119,23 @@ button:hover, input:hover, textarea:hover {
 .user-name {
     display: block;
     width: 60%;
-    color: #607D8B;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 24px;
-    margin: 70px auto 25px;
+    margin: 70px auto 20px;
     padding: 10px;
-    background-color: #FFFDF6;
     border: none;
     border-radius: 6px;
     border-top: 6px solid #4CAF50;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    color: #607D8B;
+    background-color: #FFFDF6;
 }
 
 .button-send-username {
     display: block;
-    border: none;
     height: 70px;
     width: 70px;
     margin: 0 auto;
+    border: none;
     border-radius: 50px;
     background: url("../img/input_white_24.png") no-repeat center center;
     background-color: #29B6F6;
@@ -155,10 +152,10 @@ button:hover, input:hover, textarea:hover {
     height: 100%;
     width: 100%;
     background: url("../img/background1.jpg") no-repeat center center fixed;
+    background-color: #FFFDF6;
     background-size: cover;
     z-index: 99;
 }
-
 
 ::-webkit-scrollbar {
     width: 5px;

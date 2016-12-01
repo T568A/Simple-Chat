@@ -4,9 +4,16 @@ var messageList = document.querySelector('.message-list'),
     username;
 
 
-function getUserName() {
+function logon() {
     username = document.querySelector('.user-name').value.trim();
-    hidePopup();
+    socket.emit('connect user', {userName: username});
+    socket.on('logon', function(msg) {
+        if (msg === 'deny') {
+            document.querySelector('.user-name').value = 'user already logged';
+        } else if (msg === 'allow'){
+            hidePopup();
+        }
+    });
 }
 
 function hidePopup() {
@@ -65,10 +72,10 @@ socket.on('chat message', function(msg){
     }
  });
 
-document.querySelector('.button-send-username').addEventListener('click', getUserName);
+document.querySelector('.button-send-username').addEventListener('click', logon);
 document.querySelector('.user-name').addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
-        getUserName();
+        logon();
     }
 });
 

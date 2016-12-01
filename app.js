@@ -2,7 +2,8 @@ var express = require('express'),
     app = express(),
     server = require('http').Server(app),
     io = require('socket.io')(server),
-    escape = require('escape-html');
+    escape = require('escape-html'),
+    users = [];
 
 app.disable('x-powered-by');
 app.use(express.static('public'));
@@ -15,7 +16,18 @@ app.get('/', function (req, res) {
 
 io.on('connection', function(socket){
     //TODO: add event new client
-    socket.on('chat message', function(msg){
+
+    socket.on('connect user', function(msg) {
+        if (users.indexOf(msg.userName) === -1) {
+            users.push(escape(msg.userName.trim()));
+            console.log(users);
+            io.emit('logon', 'allow');
+        } else {
+            io.emit('logon', 'deny');
+        }
+
+    });
+    socket.on('chat message', function(msg) {
         if (msg.messageText.trim() !== '' && msg.userName.trim() !== '') {
             msg.messageText = escape(msg.messageText.trim());
             msg.userName = escape(msg.userName.trim());
