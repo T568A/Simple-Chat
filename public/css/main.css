@@ -108,13 +108,35 @@ button:hover, input:hover, textarea:hover {
 
 .user-list {
     position: fixed;
+    max-width: 15%;
     top: 5%;
     left: 2%;
-    padding: 20px;
     z-index: 80;
-    border-top: 6px solid #0091EA;
+    overflow: hidden;
+    color: #607D8B;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 7px;
     background-color: #FFFDF6;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.user-list li {
+    padding: 3px 30px;
+    list-style: none;
+    border-left: 6px solid #0091EA;
+    font-size: 16px;
+}
+
+li:first-child {
+    padding-top: 10px;
+}
+
+li:last-child {
+    padding-bottom: 10px;
+}
+
+li:hover {
+    background-color: #E0F2F1;
 }
 
 .popup {
@@ -214,6 +236,9 @@ button:hover, input:hover, textarea:hover {
     .wrapper-message-send {
         width: 75%;
     }
+    .user-list {
+        display: none;
+    }
 
 }
 
@@ -235,5 +260,9 @@ button:hover, input:hover, textarea:hover {
         border-radius: 50px;
         background: url("../img/send_white.png") no-repeat center center;
         background-color: #29B6F6;
+    }
+
+    .user-list {
+        display: none;
     }
 }
