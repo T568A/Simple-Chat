@@ -11,6 +11,11 @@ body {
     background-size: cover;
 }
 
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
 textarea {
     display: block;
     float: left;
@@ -99,6 +104,17 @@ button:hover, input:hover, textarea:hover {
 
 .button-send:hover {
     background-color: #4CAF50;
+}
+
+.user-list {
+    position: fixed;
+    top: 5%;
+    left: 2%;
+    padding: 20px;
+    z-index: 80;
+    border-top: 6px solid #0091EA;
+    background-color: #FFFDF6;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .popup {

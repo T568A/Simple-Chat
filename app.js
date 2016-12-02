@@ -26,6 +26,8 @@ io.on('connection', function(socket){
             messageHistory.forEach(function(element, index, array) {
                 socket.emit('chat message', element);
             });
+
+            io.emit('render userlist', users);
         } else {
             socket.emit('logon', 'deny');
         }

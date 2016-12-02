@@ -28,7 +28,6 @@ socket.on('chat message', function(msg){
 });
 
 
-
 function hidePopup() {
     document.querySelector('.popup').classList.add('hide-popup');
     document.querySelector('.background-popup').classList.add('hide-popup');
@@ -76,6 +75,26 @@ function sendMessage() {
         sendMessageToServer(msg);
     }
 }
+
+
+socket.on('render userlist', function(userList){
+    renderUserList(userList);
+});
+
+function renderUserList(userList) {
+    var ul = document.createElement('ul'),
+        list = document.querySelector('.user-list');
+
+    list.innerText = '';
+    userList.forEach(function(user, index, array) {
+        li = document.createElement('li');
+        li.innerText = user;
+        ul.appendChild(li);
+    });
+    list.appendChild(ul);
+}
+
+
 
 document.querySelector('.button-send-username').addEventListener('click', logon);
 document.querySelector('.user-name').addEventListener('keydown', function (event) {
