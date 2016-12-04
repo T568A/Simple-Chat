@@ -19,7 +19,7 @@ io.on('connection', function(socket){
     //TODO: add event new client
 
     socket.on('connect user', function(msg) {
-        if (users.indexOf(msg.userName) === -1) {
+        if (users.indexOf(msg.userName) === -1 && msg.userName.length < 10) {
             users.push(escape(msg.userName.trim()));
             console.log(users);
             socket.emit('logon', 'allow');
