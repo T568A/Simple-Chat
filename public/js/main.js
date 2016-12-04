@@ -3,6 +3,20 @@ var messageList = document.querySelector('.message-list'),
     socket = io(),
     username;
 
+window.onload = function() {
+    var saveUsername = localStorage.getItem("saveUsername");
+    if (saveUsername !== null && saveUsername !== undefined) {
+        username = saveUsername.trim();
+        socket.emit('connect user', {'userName': username});
+    }
+};
+
+
+// TODO: fix bug - multinick
+window.onbeforeunload = function() {
+    socket.emit('disconnect user', {'userName': username});
+};
+
 
 function logon() {
     username = document.querySelector('.user-name').value.trim();
@@ -16,6 +30,7 @@ socket.on('logon', function(msg) {
         document.querySelector('.logon-system-message').classList.add('logon-system-message-show');
     } else if (msg === 'allow') {
         hidePopup();
+        localStorage.setItem("saveUsername", username);
     }
 });
 

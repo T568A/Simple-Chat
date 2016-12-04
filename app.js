@@ -47,6 +47,15 @@ io.on('connection', function(socket){
             console.log(messageHistory);
         }
     });
+
+    socket.on('disconnect user', function(msg) {
+        if (users.indexOf(msg.userName) !== -1) {
+            users.splice(users.indexOf(msg.userName), 1);
+            io.emit('render userlist', users);
+            console.log(users);
+        }
+    });
+
 });
 
 app.use(function(req, res, next) {
